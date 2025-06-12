@@ -1,0 +1,23 @@
+name: Deploy
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - run: pnpm install
+      - run: pnpm build
+      - name: Upload via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.HOST_FTP_SERVER }}
+          username: ${{ secrets.HOST_FTP_USER }}
+          password: ${{ secrets.HOST_FTP_PASS }}
+          local-dir: ./dist
+          server-dir: /
