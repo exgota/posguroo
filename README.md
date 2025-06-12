@@ -1,18 +1,18 @@
-# Po$ Guroo Landing Page
+# SpotHopper React Landing
 
-Minimal Astro + Tailwind site for lead generation.
+This is a minimal React + Vite project that displays the existing SpotHopper landing page inside an iframe.
 
-## Setup
+## Development
+
+Install dependencies and start the dev server:
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
-## Deploy
+## Build
 
-Workflow pushes the `dist/` folder via FTP. Configure `HOST_FTP_*` secrets in GitHub.
-
-## Editing Content
-
-Edit `content/copy.json` and `content/kpis.json` for copy and KPI data. Swap media under `public/media`.
+```bash
+npm run build
+```
